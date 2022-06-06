@@ -197,12 +197,7 @@ class _ListViewInMainScreenState extends State<ListViewInMainScreen> {
                                 ],),
                               ),
 
-                              const SizedBox(height: 4,),
-
-                              const Line(),
-
-                              const SizedBox(height: 4,),
-
+                              const SizedBox(height: 8,),
 
                             ],
                           );

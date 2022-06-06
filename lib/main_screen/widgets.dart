@@ -17,7 +17,7 @@ InputDecoration textFieldDecoration(String hintText) {
 
     enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: mainBlue),
-        borderRadius: BorderRadius.all(Radius.circular(12.0))
+        borderRadius: BorderRadius.all(Radius.circular(10.0))
     ),
   );
 }

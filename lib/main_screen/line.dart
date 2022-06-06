@@ -12,9 +12,9 @@ class _LineState extends State<Line> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 0.25,
+      height: 0.2,
       margin: const EdgeInsets.only(top: 4),
-      color: const Color(0xFFBABAC9),
+      color: const Color(0xFF282626),
     );
   }
 }

@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
+import 'package:limbus_flutter_2/main_screen/main_screen.dart';
 
 import '../main_screen/widgets.dart';
 import '../resource/colors.dart';
@@ -15,6 +17,8 @@ class Oformit_Prodaja extends StatefulWidget {
 class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
 
   String text = "text";
+  String? groupValue;
+  bool? duty = false;
 
   @override
   Widget build(BuildContext context) {
@@ -113,9 +117,9 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
 
               const Line(),
 
-              Container(
+              SizedBox(
                 width: allSize(context, 'w'),
-                height: 150,
+                height: 140,
                 child: ListView.builder(
                   itemCount: 20,
                     itemBuilder: (context, index){
@@ -124,7 +128,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                         children: [
                           Container(
                             width: allSize(context, 'w'),
-                            margin: const EdgeInsets.only(right: 16, left: 16, top: 4),
+                            margin: const EdgeInsets.only(right: 16, left: 16),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -136,14 +140,14 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
 
                                 const SizedBox(width: 6,),
 
-                                Container(
+                                SizedBox(
                                   width: allSize(context, 'w') - 42 - 34 - 45 - 5,
 
                                   child: Column(children: [
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text('Танометр', style: textStyleBlack(mainSize + 1),),
+                                        Text('Танометр', style: textStyleBlack600(mainSize),),
                                         Text('120 сом', style: textStyleBlueColor600(13),),
                                       ],),
 
@@ -165,15 +169,14 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   ],),
                                 ),
 
-                                Container(
+                                SizedBox(
                                   width: 45,
                                   child: Center(child: SvgPicture.asset('assets/images/plus_icon.svg'))
                                 )
                               ],),
                           ),
 
-                          Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),)
+                          const SizedBox(height: 2,)
                         ],
                       );
                     }),
@@ -181,8 +184,9 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
 
               const Line(),
 
-              const SizedBox(height: 4,),
+              const SizedBox(height: 2,),
 
+              // added
               Expanded(
                 flex: 6,
                   child: ListView.builder(
@@ -201,9 +205,9 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('1. Хирургические инструменты', style: textStyleBlack(mainSize + 1),),
+                                Text('1. Хирургические инструменты', style: textStyleBlack600(mainSize),),
 
-                                const SizedBox(height: 3,),
+                                const SizedBox(height: 2,),
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -253,10 +257,10 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
 
                             InkWell(
                               onTap: (){},
-                                child: SvgPicture.asset('images/delete.svg'))
+                                child: SvgPicture.asset('assets/images/delete.svg'))
                           ],),
 
-                        const SizedBox(height: 6,),
+                        const SizedBox(height: 4,),
 
                         //  2
                         Row(
@@ -299,33 +303,202 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                           ],),
 
 
-                        const SizedBox(height: 4,),
-                        const Line(),
+                        // const SizedBox(height: 4,),
+
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 0.12,
+                          margin: const EdgeInsets.only(top: 4),
+                          color: const Color(0xFF282626),
+                        ),
+
                         const SizedBox(height: 4,),
 
                       ],),
                     );
                   })
               ),
+
               const Line(),
+
               Expanded(
-                  flex: 5,
-                  child: Column(children: [
-                    RadioListTile(
-                      title: Text('value'),
-                        value: "value",
-                        groupValue: "value",
-                        onChanged: (val){
-                          val = "new";
-                        }),
-                    RadioListTile(
-                      title: Text('value'),
-                        value: "value",
-                        groupValue: "value",
-                        onChanged: (val){
-                          val = "new";
-                        })
-                  ],)
+                  flex: 6,
+                  child: SingleChildScrollView(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 5, right: 16, top: 4),
+                      child: Column(
+                        children: [
+
+                          // radios
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                            Row(
+                              children: [
+                                Radio(
+                                    value: "Розничный покупатель",
+                                    groupValue: groupValue,
+                                    onChanged: (value){
+                                      setState(() {
+                                        groupValue = value.toString();
+                                      });
+                                    }),
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      groupValue = "Розничный покупатель";
+                                    });
+                                  },
+                                    child: Text("Розничный покупатель", style: textStyleBlack600(mainSize))),
+                              ],
+                            ),
+
+                            Row(
+                              children: [
+                                Radio(
+                                    value: "Контрагент",
+                                    groupValue: groupValue,
+                                    onChanged: (value){
+                                      setState(() {
+                                        groupValue = value.toString();
+                                      });
+                                    }),
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      groupValue = "Контрагент";
+                                    });
+                                  },
+                                    child: Text("Контрагент", style: textStyleBlack600(mainSize),)),
+                              ],
+                            ),
+
+                          ],),
+
+                        //  discount
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text("Скидка:", style: textStyleBlack(mainSize)),
+                              const SizedBox(width: 10,),
+                              Container(
+                                width: 100,
+                                height: 34,
+                                child: TextField(
+                                    keyboardType: TextInputType.text,
+                                    onChanged: (text) {
+                                      //print(textFieldNumber);
+                                    },
+                                    style: textStyleBlack(mainSize + 1),
+                                    decoration: textFieldDecoration('0')),
+                              )
+                            ],
+                          ),
+
+                        const SizedBox(height: 2,),
+
+                        //  sum
+                        Container(
+                            margin: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Подитог:', style: textStyleBlack(mainSize)),
+                                    Text('0c:', style: textStyleBlack600(mainSize))
+                                  ],
+                                ),
+                                const SizedBox(height: 2,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Скидка:', style: textStyleBlack(mainSize)),
+                                    Text('0c:', style: textStyleBlack600(mainSize))
+                                  ],
+                                ),
+                                const SizedBox(height: 2,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Продажа:', style: textStyleBlack(mainSize)),
+                                    Text('0c:', style: textStyleBlueColor600(mainSize))
+                                  ],
+                                )
+                              ],),
+                          ),
+
+
+                        const SizedBox(height: 2,),
+
+
+                        Container(
+                          margin: const EdgeInsets.only(left: 4),
+                          child: Row(
+                            children: [
+                              Checkbox(
+                                  value: duty, onChanged: (value){
+                                      setState(() {
+                                        duty = value;
+                                      });
+                                    }
+                              ),
+                              const SizedBox(width: 10,),
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    duty = !duty!;
+                                  });
+                                },
+                                  child: Text('Оформить как долг', style: textStyleBlack600(mainSize)))
+                            ],
+                          ),
+                        ),
+
+                          const SizedBox(height: 2,),
+
+                        //  submits
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: (){},
+                              child: Container(
+                                margin: const EdgeInsets.only(left: 10),
+                                width: allSize(context, 'w') / 2 - 20,
+                                height: 42,
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                  border: Border.all(color: mainBlue, width: 1)
+                                ),
+                                alignment: Alignment.center,
+                                child: Text('Отмена', style: textStyleBlueColor(mainSize + 0.5)),
+                              ),
+                            ),
+
+                            InkWell(
+                              onTap: (){},
+                              child: Container(
+                                width: allSize(context, 'w') / 2 - 20,
+                                height: 42,
+                                decoration: BoxDecoration(
+                                  color: mainBlue,
+                                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                  border: Border.all(color: mainBlue, width: 1)
+                                ),
+                                alignment: Alignment.center,
+                                child: Text('Продать', style: textStyleWhite(mainSize + 0.5)),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(height: 20,)
+
+                        ],
+                      ),
+                    ),
+                  )
               )
             ],
           )
