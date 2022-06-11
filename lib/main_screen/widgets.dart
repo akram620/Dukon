@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:limbus_flutter_2/resource/colors.dart';
-import 'package:motion_toast/motion_toast.dart';
-import 'package:motion_toast/resources/arrays.dart';
+import 'package:x_message/x_message.dart';
 
 InputDecoration textFieldDecoration(String hintText) {
   return InputDecoration(
@@ -16,7 +15,7 @@ InputDecoration textFieldDecoration(String hintText) {
     ),
 
     enabledBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: mainBlue),
+        borderSide: BorderSide(color: backgroundField),
         borderRadius: BorderRadius.all(Radius.circular(10.0))
     ),
   );
@@ -82,16 +81,19 @@ double allSize(BuildContext context, String code){
 
 
 void motionToast(context, message){
-  MotionToast(
-    // title:  Text("Success Motion Toast"),
-    description: Text(message),
-    width:  300,
-    height: 62,
-    dismissable: true,
-    icon: Icons.info_outline,
-    primaryColor: Colors.blue,
-    animationType: ANIMATION.fromRight,
-    animationDuration: const Duration(milliseconds: 550),
-    toastDuration: const Duration(milliseconds: 1300),
-  ).show(context);
+  Toast(
+    context: context,
+    message: message,
+    position: ToastPosition.bottom,
+    padding: const EdgeInsets.only(right: 100, left: 100, top: 10, bottom: 10),
+    fontSize: 16,
+    duration: const Duration(seconds: 2),
+    color: Colors.blue,
+    backgroundColor: Colors.white,
+    border: Border.all(
+      color: Colors.blue,
+      width: 1.5,
+    ),
+    borderRadius: 8,
+  );
 }

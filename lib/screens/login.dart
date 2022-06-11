@@ -38,12 +38,12 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Image.asset('assets/images/' + 'icon_calendar_login.png', height: 126,),
+                Image.asset('assets/images/' 'icon_calendar_login.png', height: 126,),
 
                 Container(width: allSize(context, 'w',),
                   margin: const EdgeInsets.only(left: 5, top: 15),
                     child: Text('Введите домен:', style: textStyleBlack(14),)),
-                Container(
+                SizedBox(
                   height: 42,
                   child: TextField(
                       style: textStyleBlack(14),
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(width: allSize(context, 'w'),
                       margin: const EdgeInsets.only(left: 5, top: 15),
                       child: Text('Введите логин:', style: textStyleBlack(14),)),
-                  Container(
+                  SizedBox(
                     height: 42,
                     child: TextField(
                       // controller: textControllerNumber,
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(width: allSize(context, 'w'),
                       margin: const EdgeInsets.only(left: 5, top: 15),
                       child: Text('Введите пароль:', style: textStyleBlack(14),)),
-                  Container(
+                  SizedBox(
                     height: 42,
                     child: TextField(
                       // controller: textControllerNumber,

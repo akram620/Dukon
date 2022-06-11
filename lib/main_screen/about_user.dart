@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:limbus_flutter_2/main_screen/widgets.dart';
-import 'package:limbus_flutter_2/main_screen/from_date_to_date.dart';
 
 class AboutUser extends StatefulWidget {
   const AboutUser({Key? key}) : super(key: key);

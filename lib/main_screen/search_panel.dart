@@ -43,7 +43,7 @@ class _SearchPanelState extends State<SearchPanel> {
                   },
                   style: textStyleBlack(12),
                   decoration: textFieldDecoration('Номер чека'))),
-          // visibil widgets
+          // visibility widgets
           Container(
             width: 42,
             height: 42,

@@ -5,14 +5,14 @@ import 'package:limbus_flutter_2/main_screen/line.dart';
 import '../main_screen/widgets.dart';
 import '../resource/colors.dart';
 
-class OformitProdaja extends StatefulWidget {
-  const OformitProdaja({Key? key}) : super(key: key);
+class MakeSale extends StatefulWidget {
+  const MakeSale({Key? key}) : super(key: key);
 
   @override
-  State<OformitProdaja> createState() => _OformitProdajaState();
+  State<MakeSale> createState() => _MakeSaleState();
 }
 
-class _OformitProdajaState extends State<OformitProdaja> {
+class _MakeSaleState extends State<MakeSale> {
 
   String text = "text";
   String? groupValue = "Розничный покупатель";
@@ -115,6 +115,7 @@ class _OformitProdajaState extends State<OformitProdaja> {
 
               const Line(),
 
+              //first listView
               SizedBox(
                 width: allSize(context, 'w'),
                 height: 140,

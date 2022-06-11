@@ -126,7 +126,9 @@ class _ChooseServicesState extends State<ChooseServices> {
             // 3
             const SizedBox(height: 10,),
             InkWell(
-              onTap: (){motionToast(context, 'В разработке');},
+              onTap: (){
+                Navigator.pushNamed(context, '/coming_screen');
+                },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 width: allSize(context, "w"),

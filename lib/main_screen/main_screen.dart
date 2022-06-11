@@ -1,5 +1,3 @@
-import 'package:cool_alert/cool_alert.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,13 +7,15 @@ import 'package:limbus_flutter_2/main_screen/app_bar_main.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
 import 'package:limbus_flutter_2/main_screen/widgets.dart';
 import 'package:limbus_flutter_2/main_screen/list_view_in_main_screen.dart';
-import 'package:limbus_flutter_2/main_screen/reciept.dart';
+import 'package:limbus_flutter_2/main_screen/receipt.dart';
 import 'package:limbus_flutter_2/resource/colors.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   static bool isVisibility = true;
+
+  // receipt
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -120,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
                       },
                       style: textStyleBlack(mainSize),
                       decoration: textFieldDecoration('Номер чека'))),
-              // visibil widgets
+              // visibility widgets
               Container(
                 width: 42,
                 height: 42,
@@ -203,7 +203,7 @@ class _MainScreenState extends State<MainScreen> {
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(time1, style: textStyleBlack(mainSize)),
-                                    SvgPicture.asset('assets/images/calend.svg')
+                                    SvgPicture.asset('assets/images/calendar.svg')
                                   ],
                                 ),
                               )),
@@ -237,7 +237,7 @@ class _MainScreenState extends State<MainScreen> {
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(time2, style: textStyleBlack(mainSize)),
-                                    SvgPicture.asset('assets/images/calend.svg')
+                                    SvgPicture.asset('assets/images/calendar.svg')
                                   ],
                                 ),
                               )),
@@ -254,7 +254,7 @@ class _MainScreenState extends State<MainScreen> {
                     child: Text(time1 + ' / ' + time2, style: textStyleBlack600(mainSize),)),
               ],),
 
-              const RecieptClass(),
+              const ReceiptClass(),
               // const Line(),
               const ListViewInMainScreen(),
 
@@ -264,7 +264,7 @@ class _MainScreenState extends State<MainScreen> {
 
         floatingActionButton: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/oformit_prodaja');
+            Navigator.pushNamed(context, '/make_sale');
           },
           child: Container(
               alignment: Alignment.center,

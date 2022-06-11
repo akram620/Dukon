@@ -26,7 +26,7 @@ class _ComingScreenState extends State<ComingScreen> {
         appBar: AppBar(
           elevation: 0.0,
           toolbarHeight: 50,
-          title: Text('Мои продажи', style: textStyleWhite(largeSize),),
+          title: Text('Список приходов', style: textStyleWhite(largeSize),),
           centerTitle: true,
           leading: GestureDetector(
             onTap: () {

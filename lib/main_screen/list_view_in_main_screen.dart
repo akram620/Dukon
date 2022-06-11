@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:limbus_flutter_2/main_screen/widgets.dart';
 import 'package:limbus_flutter_2/resource/colors.dart';
 
-import 'line.dart';
 
 class ListViewInMainScreen extends StatefulWidget {
   const ListViewInMainScreen({Key? key}) : super(key: key);
@@ -148,7 +147,7 @@ class _ListViewInMainScreenState extends State<ListViewInMainScreen> {
 
                           return Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: allSize(context, 'w'),
                                 child: Row(
 
@@ -159,15 +158,15 @@ class _ListViewInMainScreenState extends State<ListViewInMainScreen> {
                                       child: Image.asset('assets/images/img.jpg', width: 42, height: 42,)
                                   ),
 
-                                  Container(
+                                  SizedBox(
                                     width: allSize(context, 'w') - 100,
                                     child: Column(children: [
 
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                        Text('Танометр', style: textStyleBlack600(12),),
-                                        Text('120', style: textStyleBlack600(13),),
+                                        Text('Танометр', style: textStyleBlack600(mainSize),),
+                                        Text('120', style: textStyleBlack600(mainSize),),
                                       ],),
 
                                       Row(
@@ -251,7 +250,7 @@ class _ListViewInMainScreenState extends State<ListViewInMainScreen> {
         ? const SizedBox(height: 65,)
         :
 
-      Container(
+      SizedBox(
         // margin: const EdgeInsets.only(top: 6),
         width: allSize(context, 'w'),
         child: Column(
@@ -266,10 +265,10 @@ class _ListViewInMainScreenState extends State<ListViewInMainScreen> {
               boxShadow: const [],
               centralizeFirstChild: false,
               backgroundColor: Colors.white,
-              arrowWidget: SvgPicture.asset('assets/images/arrow_expan_down.svg'),
+              arrowWidget: SvgPicture.asset('assets/images/arrow_expanded_down.svg'),
               arrowLocation: ArrowLocation.left,
 
-              firstChild: Container(
+              firstChild: SizedBox(
                 width: allSize(context, 'w') - 80,
                 height: 52,
                 child: Row(

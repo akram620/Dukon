@@ -24,8 +24,9 @@ dependencies:
 
   expandable_widgets: ^1.0.3+1
   flutter_toastr: ^1.0.3
-  motion_toast: ^2.1.6
 
+  x_message: ^0.1.0
+  marquee:
 
   intl: ^0.17.0
 
@@ -43,7 +44,7 @@ flutter:
 
   assets:
      - assets/images/
-     - assets/images/reciepts/
+     - assets/images/receipts/
 
   fonts:
     - family: OpenSans_Bold

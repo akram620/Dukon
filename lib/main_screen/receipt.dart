@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:limbus_flutter_2/main_screen/widgets.dart';
 
-class RecieptClass extends StatefulWidget {
-  const RecieptClass({Key? key}) : super(key: key);
+class ReceiptClass extends StatefulWidget {
+  const ReceiptClass({Key? key}) : super(key: key);
 
   @override
-  _RecieptClassState createState() => _RecieptClassState();
+  _ReceiptClassState createState() => _ReceiptClassState();
 }
 
-class _RecieptClassState extends State<RecieptClass> {
+class _ReceiptClassState extends State<ReceiptClass> {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 4, bottom: 4),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        containerReciept('card_yellow.png', 'Количество\nчеков', '0'),
-        containerReciept('card_red.png', 'Сумма\nвозврата', '0'),
-        containerReciept('card_blue.png', 'Выручка\n', '0'),
+        containerReceipt('card_yellow.png', 'Количество\nчеков', '0'),
+        containerReceipt('card_red.png', 'Сумма\nвозврата', '0'),
+        containerReceipt('card_blue.png', 'Выручка\n', '0'),
       ]),
     );
   }
 
-  Container containerReciept(String nameImage, String text1, String text2) {
+  Container containerReceipt(String nameImage, String text1, String text2) {
     // ignore: sized_box_for_whitespace
     return Container(
       height: 77,
       width: 104,
       child: Stack(
         children: [
-          Image.asset('assets/images/reciepts/' + nameImage),
+          Image.asset('assets/images/receipts/' + nameImage),
           Container(
             padding: const EdgeInsets.only(left: 12),
             child: Column(

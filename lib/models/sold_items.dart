@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class SaledItems{
+class SoldItems{
 
-  SaledItems(this.infoIcon, this.price);
+  SoldItems(this.infoIcon, this.price);
 
   Widget infoIcon;
   int price;
