@@ -1,23 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
-import 'package:limbus_flutter_2/main_screen/main_screen.dart';
 
 import '../main_screen/widgets.dart';
 import '../resource/colors.dart';
 
-class Oformit_Prodaja extends StatefulWidget {
-  const Oformit_Prodaja({Key? key}) : super(key: key);
+class OformitProdaja extends StatefulWidget {
+  const OformitProdaja({Key? key}) : super(key: key);
 
   @override
-  State<Oformit_Prodaja> createState() => _Oformit_ProdajaState();
+  State<OformitProdaja> createState() => _OformitProdajaState();
 }
 
-class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
+class _OformitProdajaState extends State<OformitProdaja> {
 
   String text = "text";
-  String? groupValue;
+  String? groupValue = "Розничный покупатель";
   bool? duty = false;
 
   @override
@@ -27,7 +25,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
         // backgroundColor: const Color(0xFFffffff),
         appBar: AppBar(
           elevation: 0.0,
-          toolbarHeight: 60,
+          toolbarHeight: 50,
           title: Text('Мои продажи', style: textStyleWhite(16),),
           centerTitle: true,
           leading: GestureDetector(
@@ -121,7 +119,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                 width: allSize(context, 'w'),
                 height: 140,
                 child: ListView.builder(
-                  itemCount: 20,
+                  itemCount: 5,
                     itemBuilder: (context, index){
 
                       return Column(
@@ -133,7 +131,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
 
-                                Container(
+                                SizedBox(
                                     width: 42,
                                     child: Image.asset('assets/images/img.jpg', width: 42, height: 42,)
                                 ),
@@ -190,7 +188,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
               Expanded(
                 flex: 6,
                   child: ListView.builder(
-                    itemCount: 20,
+                    itemCount: 5,
                       itemBuilder: (context, index){
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -325,7 +323,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                   flex: 6,
                   child: SingleChildScrollView(
                     child: Container(
-                      margin: const EdgeInsets.only(left: 5, right: 16, top: 4),
+                      margin: const EdgeInsets.only(right: 16),
                       child: Column(
                         children: [
 
@@ -337,12 +335,12 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                               children: [
                                 Radio(
                                     value: "Розничный покупатель",
-                                    groupValue: groupValue,
                                     onChanged: (value){
                                       setState(() {
                                         groupValue = value.toString();
                                       });
-                                    }),
+                                    },
+                                    groupValue: groupValue),
                                 InkWell(
                                   onTap: (){
                                     setState(() {
@@ -381,7 +379,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                             children: [
                               Text("Скидка:", style: textStyleBlack(mainSize)),
                               const SizedBox(width: 10,),
-                              Container(
+                              SizedBox(
                                 width: 100,
                                 height: 34,
                                 child: TextField(
@@ -406,7 +404,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text('Подитог:', style: textStyleBlack(mainSize)),
-                                    Text('0c:', style: textStyleBlack600(mainSize))
+                                    Text('0c', style: textStyleBlack600(mainSize))
                                   ],
                                 ),
                                 const SizedBox(height: 2,),
@@ -414,7 +412,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text('Скидка:', style: textStyleBlack(mainSize)),
-                                    Text('0c:', style: textStyleBlack600(mainSize))
+                                    Text('0c', style: textStyleBlack600(mainSize))
                                   ],
                                 ),
                                 const SizedBox(height: 2,),
@@ -422,37 +420,30 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text('Продажа:', style: textStyleBlack(mainSize)),
-                                    Text('0c:', style: textStyleBlueColor600(mainSize))
+                                    Text('0c', style: textStyleBlueColor600(mainSize))
                                   ],
                                 )
                               ],),
                           ),
 
-
-                        const SizedBox(height: 2,),
-
-
-                        Container(
-                          margin: const EdgeInsets.only(left: 4),
-                          child: Row(
-                            children: [
-                              Checkbox(
-                                  value: duty, onChanged: (value){
-                                      setState(() {
-                                        duty = value;
-                                      });
-                                    }
-                              ),
-                              const SizedBox(width: 10,),
-                              InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    duty = !duty!;
-                                  });
-                                },
-                                  child: Text('Оформить как долг', style: textStyleBlack600(mainSize)))
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Checkbox(
+                                value: duty, onChanged: (value){
+                                    setState(() {
+                                      duty = value;
+                                    });
+                                  }
+                            ),
+                            // const SizedBox(width: 5,),
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  duty = !duty!;
+                                });
+                              },
+                                child: Text('Оформить как долг', style: textStyleBlack600(mainSize)))
+                          ],
                         ),
 
                           const SizedBox(height: 2,),
@@ -472,7 +463,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   border: Border.all(color: mainBlue, width: 1)
                                 ),
                                 alignment: Alignment.center,
-                                child: Text('Отмена', style: textStyleBlueColor(mainSize + 0.5)),
+                                child: Text('Отмена', style: textStyleBlueColor(mainSize + 1)),
                               ),
                             ),
 
@@ -487,7 +478,7 @@ class _Oformit_ProdajaState extends State<Oformit_Prodaja> {
                                   border: Border.all(color: mainBlue, width: 1)
                                 ),
                                 alignment: Alignment.center,
-                                child: Text('Продать', style: textStyleWhite(mainSize + 0.5)),
+                                child: Text('Продать', style: textStyleWhite(mainSize + 1)),
                               ),
                             ),
                           ],
