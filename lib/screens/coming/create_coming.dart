@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
 
-import '../main_screen/widgets.dart';
-import '../resource/colors.dart';
+import '../../main_screen/widgets.dart';
+import '../../resource/colors.dart';
 
 class CreateComing extends StatefulWidget {
   const CreateComing({Key? key}) : super(key: key);
@@ -191,7 +191,7 @@ class _CreateComingState extends State<CreateComing> {
                         // search
                         Container(
                             color: Colors.black.withOpacity(0.0),
-                            width: MediaQuery.of(context).size.width - 84 - 32 - 10,
+                            width: MediaQuery.of(context).size.width - 84 - 32 - 10 - 50,
                             height: 42,
                             // padding: ,
                             child: TextField(
@@ -220,6 +220,22 @@ class _CreateComingState extends State<CreateComing> {
                           color: Colors.black.withOpacity(0.0),
                           child: InkWell(
                             child: SvgPicture.asset('assets/images/scanner_icon.svg'),
+                            onTap: () {
+
+                            },
+                          ),
+                        ),
+
+                        Container(
+                          width: 42,
+                          height: 42,
+                          color: Colors.black.withOpacity(0.0),
+                          child: InkWell(
+                            child: InkWell(
+                                onTap: (){
+                                  Navigator.pushNamed(context, '/create_item');
+                                },
+                                child: SvgPicture.asset('assets/images/plus_red.svg')),
                             onTap: () {
 
                             },

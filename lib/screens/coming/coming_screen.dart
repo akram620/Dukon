@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
 import 'package:limbus_flutter_2/resource/colors.dart';
 
-import '../main_screen/widgets.dart';
+import '../../main_screen/widgets.dart';
 
 class ComingScreen extends StatefulWidget {
   const ComingScreen({Key? key}) : super(key: key);

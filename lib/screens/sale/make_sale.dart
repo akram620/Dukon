@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:limbus_flutter_2/main_screen/line.dart';
 
-import '../main_screen/widgets.dart';
-import '../resource/colors.dart';
+import '../../main_screen/widgets.dart';
+import '../../resource/colors.dart';
 
 class MakeSale extends StatefulWidget {
   const MakeSale({Key? key}) : super(key: key);
